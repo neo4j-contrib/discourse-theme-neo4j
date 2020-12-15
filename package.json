@@ -1,0 +1,30 @@
+{
+  "name": "discourse-theme-neo4j",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "postcss tailwind/global.css -o common/neo4j.css",
+    "build:production": "NODE_ENV=production postcss tailwind/global.css -o common/neo4j.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akollegger/discourse-theme-neo4j.git"
+  },
+  "keywords": [],
+  "author": "Andreas Kollegger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akollegger/discourse-theme-neo4j/issues"
+  },
+  "homepage": "https://github.com/akollegger/discourse-theme-neo4j#readme",
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.1",
+    "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.3.1",
+    "postcss-cli": "^8.3.1"
+  }
+}

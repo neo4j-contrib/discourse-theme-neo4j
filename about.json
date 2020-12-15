@@ -1,9 +1,20 @@
 {
-  "name": "Neo4j Community",
+  "name": "Neo4j Community Discourse",
   "about_url": null,
   "license_url": null,
   "assets": {
   },
   "color_schemes": {
-  }
-}
+    "Neo4j light": {
+        "primary": "cccccc",
+        "secondary": "111111",
+        "tertiary": "009dd8",
+        "quaternary": "9E9E9E",
+        "header_background": "131418",
+        "header_primary": "cccccc",
+        "highlight": "9E9E9E",
+        "danger": "96000e",
+        "success": "1ca551",
+        "love": "f50057"
+      }
+  }}
