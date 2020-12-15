@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.hero {
+  @apply w-screen;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: none;
+}
+.navigation-categories .hero {
+  display: block;
+}
 
 /*
 Fira Code
