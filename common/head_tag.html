@@ -1,5 +1,5 @@
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 
 <script>
 //Weekly and Community banners
@@ -104,7 +104,7 @@ var handlers = {
             var content = data ? data.data.topCommunityBlogsAndContent : [];
 
             content.map(article => {
-                $("#communityBlogs").append('<div class="flex flex-row"><div class="flex-initial ml-2"> ' +
+                $("#communityBlogs").append('<div class="p-2 mr-4 flex flex-row hover:shadow"><div class="flex-initial ml-2"> ' +
                     avatar(article.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
                     contentLink(article.title, article.url) + '</div></div>'
                 );
@@ -128,7 +128,7 @@ var handlers = {
 
             // Take first 5 only
             projs.slice(0,5).map(proj => {
-                $("#communityOpenSource").append('<div class="flex flex-row"><div class="flex-initial"> ' +
+                $("#communityOpenSource").append('<div class="p-2 mr-4 flex flex-row hover:shadow"><div class="flex-initial"> ' +
                 avatar(proj.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
                 contentLink(proj.title, proj.url) + '</div><div class="flex-inital w-24 text-gray-400 text-right"> ' +
                 progLanguage(proj.language) + '&nbsp;</div></div>');
@@ -141,10 +141,13 @@ var handlers = {
             var featuredMember = twin4j.featuredCommunityMember;
             var topItems = twin4j.topItems || [];
 
+            $("#twin4jHeadline").append(
+                '&nbsp;<code>--&gt;</code>&nbsp;' + contentLink(twin4j.date, twin4j.url)
+            );
+
             $("div#twin4jContainer").append(
-                '<h3>' + contentLink(twin4j.date, twin4j.url) + '</h3>' +
-                '<p class="weekly box">' + 
-                topItems.map(topItems => '<li>' + contentLink(topItems.tag, topItems.url) + '</li>').join('\n') +
+                '<p class="weekly box grid grid-cols-2 md:grid-cols-5 items-center font-serif leading-16 text-l">' + 
+                topItems.map(topItems => '<span class="bg-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl">' + contentLink(topItems.tag, topItems.url) + '</span>').join(' ') +
                 '</p>'
             );
 
