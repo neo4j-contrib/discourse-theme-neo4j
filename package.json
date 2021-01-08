@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "postcss tailwind/global.css -o common/common.scss",
-    "build:production": "NODE_ENV=production postcss tailwind/global.css -o common/common.scss"
+    "build:dev": "postcss tailwind/global.scss -o public/common.scss",
+    "build:production": "NODE_ENV=production postcss tailwind/global.scss -o common/common.scss"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/akollegger/discourse-theme-neo4j#readme",
   "dependencies": {
-    "autoprefixer": "^10.1.0",
-    "postcss": "^8.2.1",
-    "tailwindcss": "^2.0.2"
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.3.1",
-    "postcss-cli": "^8.3.1"
+    "postcss-cli": "^7.1.2",
+    "posthtml-include": "^1.6.0"
   }
 }

@@ -1,0 +1,208 @@
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+//Weekly and Community banners
+var endpoint = "https://communityapi.neo4jlabs.com/";
+
+function avatar(data, extraClasses) {
+    var classes = 'avatar ' + (extraClasses || '');
+
+    return (
+        "<a href='/users/" + data.name + "' alt='" + (data.name || data.screenName) + "'>" +
+        "<img alt='" + data.name + "' class='"+classes+"' src='" + data.avatar + "'/> " +
+        "</a>"
+    );
+}
+
+function contentLink(title, url) {
+    return "<a class='community content' href='" + url + "'>" + title + "</a>";
+}
+
+function userTile(data) {    
+    return ('<div class="user tile">' +
+        avatar(data) + 
+        // "<a href='/users/" + data.name + "'>" +
+        // (data.name || data.screenName) +
+        // "</a>" +
+        '</div>');
+}
+
+function progLanguage (lang) {
+    // Need image tile
+    return '<div class="proglanguage">' + lang + '</div>';
+}
+
+function dateFormat(str) {
+    var d = new Date(str);
+    var months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    var month = months[d.getMonth()];
+    var year = d.getFullYear();
+    var dt = d.getDate();
+
+    return month + ' ' + dt + ', ' + year;
+}
+
+var combinedQuery = `{
+    topCommunityBlogsAndContent(first:5) { 
+        title
+        url
+        author {
+          name
+          screenName
+          avatar
+        }
+    }                    
+    topNewCertifiedDevelopers(first:5) {
+        developer {
+            name
+            screenName
+            avatar
+        }
+    }
+    topCommunityOpenSourceProjects(first:5) {
+        title
+        url
+        description
+        releaseDate
+        language
+        author {
+          name
+          screenName
+          avatar
+        }
+    }
+    thisWeekInNeo4j {
+        featuredCommunityMember{
+            image
+        }
+        topItems {
+            tag
+            url
+        }
+        features {
+            tag
+            url
+        }
+        articles {
+            tag
+            url
+        }
+        date
+        url
+        text
+    }
+}`;
+
+var handlers = {
+    topContent: {
+         handler: data => {
+            var content = data ? data.data.topCommunityBlogsAndContent : [];
+
+            content.map(article => {
+                $("#communityBlogs").append('<div class="flex flex-row"><div class="flex-initial ml-2"> ' +
+                    avatar(article.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
+                    contentLink(article.title, article.url) + '</div></div>'
+                );
+            });
+         }
+    },
+    topDevs: {
+        handler: data => {
+            var devs = data ? data.data.topNewCertifiedDevelopers : [];
+
+            devs.map(obj => obj.developer).forEach(dev => {
+                $("#devList").prepend('<div class="text-center p-2 self-center hover:shadow">' +
+                avatar(dev, 'mx-auto') + 
+                contentLink(dev.screenName || dev.name, '/users/' + dev.name) + '<div>');
+            });
+        }
+    },
+    topProjects: {
+        handler: data => {
+            var projs = data ? data.data.topCommunityOpenSourceProjects : [];
+
+            // Take first 5 only
+            projs.slice(0,5).map(proj => {
+                $("#communityOpenSource").append('<div class="flex flex-row"><div class="flex-initial"> ' +
+                avatar(proj.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
+                contentLink(proj.title, proj.url) + '</div><div class="flex-inital w-24 text-gray-400 text-right"> ' +
+                progLanguage(proj.language) + '&nbsp;</div></div>');
+            });
+        }
+    },
+    twin4j: {
+        handler: data => {
+            var twin4j = data ? data.data.thisWeekInNeo4j : null;
+            var featuredMember = twin4j.featuredCommunityMember;
+            var topItems = twin4j.topItems || [];
+
+            $("div#twin4jContainer").append(
+                '<h3>' + contentLink(twin4j.date, twin4j.url) + '</h3>' +
+                '<p class="weekly box">' + 
+                topItems.map(topItems => '<li>' + contentLink(topItems.tag, topItems.url) + '</li>').join('\n') +
+                '</p>'
+            );
+
+            // Featured comm member.
+            if (featuredMember) {            
+                $("#featuredDeveloper").append(
+                    contentLink("<img class='featured member hover:shadow p-2 w-3/4 mx-auto' src='" + featuredMember.image + "' alt='" +
+                    twin4j.date + "'" + 
+                    "/>", twin4j.url)
+                )
+            }
+        }
+    }
+}
+
+function genericError(err) {
+    console.error('Kudos to Nav; ', err);
+}
+
+function graphQL(query, success, fail) {
+    if (!fail) {
+        fail = genericError;
+    }
+    
+    return $.ajax({
+        url: endpoint,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            operationName:null,
+            variables: {},
+            query: query
+        }),
+        success: success,
+        error: fail
+    });
+}
+
+function pageReady() {
+    if (document.location.pathname == '/') {
+        graphQL(combinedQuery, data => {
+            if (!data || !data.data) {
+                console.warn("Bad data returned by graphql endpoint",data);
+            }
+            Object.keys(handlers).map(key => {
+                var pkg = handlers[key];
+                var handler = pkg.handler;
+    
+                handler(data);            
+            })
+        }, genericError);
+        $('#portal').show();
+    }
+}
+
+$(document).ready(pageReady);    
+</script>
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0067/1012.js" async="async"></script>
+<meta class="swiftype" name="neo4j-site" data-type="enum" content="Community Forums">
+<meta class="swiftype" name="main-search-priority" data-type="integer" content="1" />
