@@ -24,8 +24,12 @@
 
 nav a {
  &:visited {
-   @apply text-gray-300
+   @apply text-gray-300;
  } 
+}
+
+.topic-body .cooked {
+  @apply prose
 }
 
 /*
