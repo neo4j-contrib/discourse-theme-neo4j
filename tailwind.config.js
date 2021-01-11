@@ -42,6 +42,14 @@ module.exports = {
             'li': {
               marginTop: '0',
               marginBottom: '0'
+            },
+            blockquote: {
+              // fontWeight: '500',
+              // fontStyle: 'italic',
+              // color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
+              // borderLeftWidth: '0.25rem',
+              // borderLeftColor: theme('colors.gray.200', defaultTheme.colors.gray[200]),
+              quotes: "none",
             }
           },
         },
