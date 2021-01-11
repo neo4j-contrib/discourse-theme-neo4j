@@ -1,7 +1,7 @@
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 
-<script>
+<script type="text/discourse-plugin" version="0.8">
 //Weekly and Community banners
 var endpoint = "https://communityapi.neo4jlabs.com/";
 
@@ -147,8 +147,13 @@ var handlers = {
 
             $("div#twin4jContainer").append(
                 '<p class="weekly box grid grid-cols-2 md:grid-cols-5 items-center font-serif leading-16 text-l">' + 
-                topItems.map(topItems => '<span class="bg-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl">' + contentLink(topItems.tag, topItems.url) + '</span>').join(' ') +
-                '</p>'
+                topItems.map(topItems => {
+                    var titleWords = (topItems.tag || "Mystery topic").split(' ');
+                    var title = titleWords.length <= 12 ? titleWords.join(' ') :
+                        titleWords.slice(0, 12).join(' ') + " ...";
+                    return '<span class="bg-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl">' + contentLink(title, topItems.url) + '</span>'
+                })
+                .join(' ') + '</p>'
             );
 
             // Featured comm member.
@@ -164,7 +169,7 @@ var handlers = {
 }
 
 function genericError(err) {
-    console.error('Kudos to Nav; ', err);
+    console.error('discourse-theme-neo4j: ', err);
 }
 
 function graphQL(query, success, fail) {
@@ -186,24 +191,37 @@ function graphQL(query, success, fail) {
     });
 }
 
+/**
+ * NOTE: discourse is a single-page app! So page ready happens only once.
+ */
 function pageReady() {
-    if (document.location.pathname == '/') {
-        graphQL(combinedQuery, data => {
-            if (!data || !data.data) {
-                console.warn("Bad data returned by graphql endpoint",data);
-            }
-            Object.keys(handlers).map(key => {
-                var pkg = handlers[key];
-                var handler = pkg.handler;
-    
-                handler(data);            
-            })
-        }, genericError);
-        $('#portal').show();
-    }
+    console.log("page ready:", document.location.pathname)
+    graphQL(combinedQuery, data => {
+        if (!data || !data.data) {
+            console.warn("Bad data returned by graphql endpoint",data);
+        }
+        Object.keys(handlers).map(key => {
+            var pkg = handlers[key];
+            var handler = pkg.handler;
+
+            handler(data);            
+        })
+
+    }, genericError);
+
+
+    api.onPageChange((url, title) => {
+        if (document.location.pathname === '/') {
+            $('#discourse-theme-neo4j-header').show();
+        } else {
+            $('#discourse-theme-neo4j-header').hide();
+        }
+    });  
 }
 
-$(document).ready(pageReady);    
+$(document).ready(pageReady);  
+
+
 </script>
 
 <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0067/1012.js" async="async"></script>
