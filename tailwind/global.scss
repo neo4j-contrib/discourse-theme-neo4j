@@ -34,8 +34,8 @@ nav a {
 
   img.emoji {
     display: inline-block;
-    margin: inherit;
-    vertical-align: top;
+    margin: unset;
+    vertical-align: text-bottom;
   }
 }
 
