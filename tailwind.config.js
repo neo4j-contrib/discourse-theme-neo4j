@@ -54,7 +54,6 @@ module.exports = {
           },
         },
       },
-
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -62,6 +61,11 @@ module.exports = {
           light: "#85d7ff",
           DEFAULT: "#1fb6ff",
           dark: "#009eeb",
+          neo4j: "#008CC2"
+        },
+        green: {
+          neo4j: "#63b345",
+          dark: "#386627",
         },
         pink: {
           light: "#ff7ce5",
@@ -78,6 +82,11 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      ringWidth: ['hover'],
+      backgroundOpacity: ['hover'],
+    }
+  },
   plugins: [require("@tailwindcss/typography")],
 };

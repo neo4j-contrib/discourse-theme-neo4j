@@ -149,9 +149,9 @@ var handlers = {
                 '<p class="weekly box grid grid-cols-2 md:grid-cols-5 items-center font-serif leading-16 text-l">' + 
                 topItems.map(topItems => {
                     var titleWords = (topItems.tag || "Mystery topic").split(' ');
-                    var title = titleWords.length <= 12 ? titleWords.join(' ') :
-                        titleWords.slice(0, 12).join(' ') + " ...";
-                    return '<span class="bg-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl">' + contentLink(title, topItems.url) + '</span>'
+                    var title = titleWords.length <= 10 ? titleWords.join(' ') :
+                        titleWords.slice(0, 10).join(' ') + " ...";
+                    return '<span class="twin4j-article-headline">' + contentLink(title, topItems.url) + '</span>'
                 })
                 .join(' ') + '</p>'
             );

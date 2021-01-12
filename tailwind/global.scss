@@ -32,6 +32,13 @@ nav a {
   @apply prose
 }
 
+.twin4j-article-headline {
+  @apply bg-green-neo4j text-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark;
+  a:hover {
+    @apply text-current;
+  }
+}
+
 /*
 Fira Code
 https://fonts.googleapis.com/css?family=Fira+Code:400&display=swap
