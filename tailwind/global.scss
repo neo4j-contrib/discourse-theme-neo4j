@@ -22,6 +22,7 @@
   max-width: none;
 }
 
+
 nav a {
  &:visited {
    @apply text-gray-300;
@@ -29,7 +30,13 @@ nav a {
 }
 
 .topic-body .cooked {
-  @apply prose
+  @apply prose ;
+
+  img.emoji {
+    display: inline-block;
+    margin: inherit;
+    vertical-align: top;
+  }
 }
 
 .twin4j-article-headline {
