@@ -107,7 +107,7 @@ var handlers = {
             var content = data ? data.data.topCommunityBlogsAndContent : [];
 
             content.map(article => {
-                $("#communityBlogs").append('<div class="p-2 mr-4 flex flex-row hover:shadow"><div class="flex-initial ml-2"> ' +
+                $("#communityBlogs").append('<div class="p-2 mr-4 flex flex-row dark:hover:bg-gray-900 hover:shadow"><div class="flex-initial ml-2"> ' +
                     avatar(article.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
                     contentLink(article.title, article.url) + '</div></div>'
                 );
@@ -119,7 +119,7 @@ var handlers = {
             var devs = data ? data.data.topNewCertifiedDevelopers : [];
 
             devs.map(obj => obj.developer).forEach(dev => {
-                $("#devList").prepend('<div class="text-center p-2 self-center hover:shadow">' +
+                $("#devList").prepend('<div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow">' +
                 avatar(dev, 'mx-auto') + 
                 contentLink(dev.screenName || dev.name, '/users/' + dev.name) + '<div>');
             });
@@ -131,7 +131,7 @@ var handlers = {
 
             // Take first 5 only
             projs.slice(0,5).map(proj => {
-                $("#communityOpenSource").append('<div class="p-2 mr-4 flex flex-row hover:shadow"><div class="flex-initial"> ' +
+                $("#communityOpenSource").append('<div class="p-2 mr-4 flex flex-row dark:hover:bg-gray-900 hover:shadow"><div class="flex-initial"> ' +
                 avatar(proj.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
                 contentLink(proj.title, proj.url) + '</div><div class="flex-inital w-24 text-gray-400 text-right"> ' +
                 progLanguage(proj.language) + '&nbsp;</div></div>');
@@ -162,7 +162,7 @@ var handlers = {
             // Featured comm member.
             if (featuredMember) {            
                 $("#featuredDeveloper").append(
-                    contentLink("<img class='featured member hover:shadow p-2 w-3/4 mx-auto' src='" + featuredMember.image + "' alt='" +
+                    contentLink("<img class='featured member dark:hover:bg-gray-900 hover:shadow p-2 w-3/4 mx-auto' src='" + featuredMember.image + "' alt='" +
                     twin4j.date + "'" + 
                     "/>", twin4j.url)
                 )
@@ -198,8 +198,7 @@ function graphQL(query, success, fail) {
  * NOTE: discourse is a single-page app! So page ready happens only once.
  */
 function pageReady() {
-    console.log("page ready:", document.location.pathname)
-    console.log(cypherLang);
+    console.log("page ready:", document.location.pathname);
 
     api.registerHighlightJSLanguage("cypher", cypherLang);
 

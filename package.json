@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "postcss tailwind/global.scss -o common/common.scss",
-    "build:production": "NODE_ENV=production postcss tailwind/global.scss -o common/common.scss"
+    "tailwind:dev": "postcss tailwind/global.scss -o common/common.scss",
+    "tailwind:prod": "NODE_ENV=production postcss tailwind/global.scss -o common/common.scss"
   },
   "repository": {
     "type": "git",

@@ -12,7 +12,7 @@ module.exports = {
   purge: [
     // './common/*.html',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
@@ -53,6 +53,51 @@ module.exports = {
             }
           },
         },
+        dark: {
+          css: {
+            color: "#FFF",
+            a: {
+              color: "#e9E9e9",
+              "&:hover": {
+                color: "#e9E9e9",
+              },
+            },
+
+            h1: {
+              color: "#FFF",
+            },
+            h2: {
+              color: "#FFF",
+            },
+            h3: {
+              color: "#FFF",
+            },
+            h4: {
+              color: "#FFF",
+            },
+            h5: {
+              color: "#FFF",
+            },
+            h6: {
+              color: "#FFF",
+            },
+
+            strong: {
+              color: "#FFF",
+            },
+            blockquote: {
+              color: "#deDEde"
+
+            },
+            code: {
+              color: "#deDEde",
+              backgroundColor: "inherit"
+            },
+            "::selection": {
+              backgroundColor: "#6f7bb635",
+            },
+          },
+        },
       },
       colors: {
         transparent: "transparent",
@@ -61,6 +106,7 @@ module.exports = {
           light: "#85d7ff",
           DEFAULT: "#1fb6ff",
           dark: "#009eeb",
+          darkest: "#002330",
           neo4j: "#008CC2"
         },
         green: {
@@ -86,7 +132,8 @@ module.exports = {
     extend: {
       ringWidth: ['hover'],
       backgroundOpacity: ['hover'],
-    }
+    },
+    typography: ["dark"],
   },
   plugins: [require("@tailwindcss/typography")],
 };

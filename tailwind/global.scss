@@ -22,15 +22,20 @@
   max-width: none;
 }
 
+#discourse-theme-neo4j-header {
+  a:visited {
+    color: currentColor;
+  }  
+}
 
 nav a {
  &:visited {
-   @apply text-gray-300;
+   @apply text-gray-300 dark:text-gray-50;
  } 
 }
 
 .topic-body .cooked {
-  @apply prose ;
+  @apply prose dark:prose-dark;
 
   img.emoji {
     display: inline-block;
@@ -40,7 +45,7 @@ nav a {
 }
 
 .twin4j-article-headline {
-  @apply bg-green-neo4j text-white text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark;
+  @apply bg-green-neo4j text-white dark:text-gray-600 text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark;
   a:hover {
     @apply text-current;
   }
