@@ -45,7 +45,7 @@ nav a {
 }
 
 .twin4j-article-headline {
-  @apply bg-green-neo4j text-white dark:text-gray-600 text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark;
+  @apply bg-green-neo4j dark:bg-green-dark text-white dark:text-gray-200 text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark dark:ring-green-900;
   a:hover {
     @apply text-current;
   }
