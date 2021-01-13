@@ -1,8 +1,11 @@
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 
+
 <script type="text/discourse-plugin" version="0.8">
-//Weekly and Community banners
+    var cypherLang = require('highlightjs-cypher').default;
+
+    //Weekly and Community banners
 var endpoint = "https://communityapi.neo4jlabs.com/";
 
 function avatar(data, extraClasses) {
@@ -196,6 +199,10 @@ function graphQL(query, success, fail) {
  */
 function pageReady() {
     console.log("page ready:", document.location.pathname)
+    console.log(cypherLang);
+
+    api.registerHighlightJSLanguage("cypher", cypherLang);
+
     graphQL(combinedQuery, data => {
         if (!data || !data.data) {
             console.warn("Bad data returned by graphql endpoint",data);
