@@ -26,13 +26,14 @@
   a:visited {
     color: currentColor;
   }  
+
+  nav a {
+    &:visited {
+      @apply text-gray-300 dark:text-gray-50;
+    } 
+  }
 }
 
-nav a {
- &:visited {
-   @apply text-gray-300 dark:text-gray-50;
- } 
-}
 
 .topic-body .cooked {
   @apply prose dark:prose-dark;
