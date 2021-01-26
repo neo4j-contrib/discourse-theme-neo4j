@@ -36,7 +36,7 @@
 
 
 .topic-body .cooked {
-  @apply prose dark:prose-dark;
+  @apply prose dark:prose-dark dark:bg-gray-dark;
 
   img.emoji {
     display: inline-block;
