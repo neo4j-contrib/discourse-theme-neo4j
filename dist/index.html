@@ -418,7 +418,7 @@ function hmrAcceptRun(bundle, id) {
 var endpoint = "https://communityapi.neo4jlabs.com/";
 
 function avatar(data) {
-  return "<a href='/users/" + data.name + "' alt='" + (data.name || data.screenName) + "'>" + "<img alt='" + data.name + "' class='avatar' src='" + data.avatar + "'/> " + "</a>";
+  return "<a href='/u/" + data.name + "' alt='" + (data.name || data.screenName) + "'>" + "<img alt='" + data.name + "' class='avatar' src='" + data.avatar + "'/> " + "</a>";
 }
 
 function contentLink(title, url) {
@@ -426,9 +426,8 @@ function contentLink(title, url) {
 }
 
 function userTile(data) {
-  return '<div class="user tile">' + avatar(data) + // "<a href='/users/" + data.name + "'>" +
-  // (data.name || data.screenName) +
-  // "</a>" +
+  console.log(userTile, data);
+  return '<div class="user tile">' + avatar(data) + 
   '</div>';
 }
 
@@ -509,7 +508,7 @@ var handlers = {
     handler: data => {
       var devs = data ? data.data.topNewCertifiedDevelopers : [];
       devs.map(obj => obj.developer).forEach(dev => {
-        $("table#devList").append('<tr class="developer"><td class="dev"> ' + avatar(dev) + '</td><td> ' + contentLink(dev.screenName || dev.name, '/users/' + dev.name) + '</td></tr>');
+        $("table#devList").append('<tr class="developer"><td class="dev"> ' + avatar(dev) + '</td><td> ' + contentLink(dev.screenName || dev.name, '/u/' + dev.name) + '</td></tr>');
       });
     }
   },

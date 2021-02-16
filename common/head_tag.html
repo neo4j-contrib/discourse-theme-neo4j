@@ -12,7 +12,7 @@ function avatar(data, extraClasses) {
     var classes = 'avatar ' + (extraClasses || '');
 
     return (
-        "<a href='/users/" + data.name + "' alt='" + (data.name || data.screenName) + "'>" +
+        "<a href='/u/" + data.name + "' alt='" + (data.name || data.screenName) + "'>" +
         "<img alt='" + data.name + "' class='"+classes+"' src='" + data.avatar + "'/> " +
         "</a>"
     );
@@ -25,9 +25,6 @@ function contentLink(title, url) {
 function userTile(data) {    
     return ('<div class="user tile">' +
         avatar(data) + 
-        // "<a href='/users/" + data.name + "'>" +
-        // (data.name || data.screenName) +
-        // "</a>" +
         '</div>');
 }
 
@@ -121,7 +118,7 @@ var handlers = {
             devs.map(obj => obj.developer).forEach(dev => {
                 $("#devList").prepend('<div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow">' +
                 avatar(dev, 'mx-auto') + 
-                contentLink(dev.screenName || dev.name, '/users/' + dev.name) + '<div>');
+                contentLink(dev.screenName || dev.name, '/u/' + dev.name) + '<div>');
             });
         }
     },
