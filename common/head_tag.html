@@ -102,7 +102,7 @@ var handlers = {
     topContent: {
          handler: data => {
             var content = data ? data.data.topCommunityBlogsAndContent : [];
-
+            $("#communityBlogs").empty();
             content.map(article => {
                 $("#communityBlogs").append('<div class="p-2 mr-4 flex flex-row dark:hover:bg-gray-900 hover:shadow"><div class="flex-initial ml-2"> ' +
                     avatar(article.author, "h-12 w-auto mr-2 shadow") + '</div><div class="flex-grow"> ' +
@@ -114,18 +114,19 @@ var handlers = {
     topDevs: {
         handler: data => {
             var devs = data ? data.data.topNewCertifiedDevelopers : [];
-
+            $("#devList").empty();
             devs.map(obj => obj.developer).forEach(dev => {
-                $("#devList").prepend('<div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow">' +
+                $("#devList").append('<div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow">' +
                 avatar(dev, 'mx-auto') + 
                 contentLink(dev.screenName || dev.name, '/u/' + dev.name) + '<div>');
             });
+            $("#devList").append('<div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow" id="certified-button"><a href="https://neo4j.com/graphacademy/neo4j-certification/" class="" target="_blank"><svg height="50px" class="mx-auto p-1 border border-solid border-black rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.a{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>Become a certified Neo4j developer</title><path class="a" d="M15.5,23.25V19.511l1.007.168A3,3,0,0,0,20,16.719V14.261l.935-.234a1.5,1.5,0,0,0,.884-2.287L20,9.011v-.75C20,3.835,15.521.3,10.182.8A8.994,8.994,0,0,0,6.5,17.547v5.7"></path><path class="a" d="M8.572,8.25a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415v.256"></path><path class="a" d="M11.572,15.75a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375h0"></path></svg><span>Certify Yourself</span></a></div>');
         }
     },
     topProjects: {
         handler: data => {
             var projs = data ? data.data.topCommunityOpenSourceProjects : [];
-
+            $("#communityOpenSource").empty();
             // Take first 5 only
             projs.slice(0,5).map(proj => {
                 $("#communityOpenSource").append('<div class="p-2 mr-4 flex flex-row dark:hover:bg-gray-900 hover:shadow"><div class="flex-initial"> ' +
@@ -145,6 +146,7 @@ var handlers = {
                 '&nbsp;<code>--&gt;</code>&nbsp;' + contentLink(twin4j.date, twin4j.url)
             );
 
+            $("div#twin4jContainer").empty();
             $("div#twin4jContainer").append(
                 '<p class="weekly box grid grid-cols-2 md:grid-cols-5 items-center font-serif leading-16 text-l">' + 
                 topItems.map(topItems => {
@@ -156,8 +158,9 @@ var handlers = {
                 .join(' ') + '</p>'
             );
 
-            // Featured comm member.
-            if (featuredMember) {            
+            // Featured comm member.      
+            $("#featuredDeveloper div").remove();
+            if (featuredMember) {      
                 $("#featuredDeveloper").append(
                     contentLink("<img class='featured member dark:hover:bg-gray-900 hover:shadow p-2 w-3/4 mx-auto' src='" + featuredMember.image + "' alt='" +
                     twin4j.date + "'" + 

@@ -1,121 +1,178 @@
-
 <div id="discourse-theme-neo4j-header" style="display:none">
-<section id="community-navigation">
+    <section id="community-navigation">
 
-    <nav class="bg-gray-dark w-full p-0 shadow-xl">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="relative flex items-center justify-between h-12">
-                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="sm:block sm:ml-6">
-                        <div class="flex space-x-4">
-                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                href="https://community.neo4j.com/categories#jumpPoint"
-                                title="Categories">Discussions</a>
-                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                href="https://community.neo4j.com/search?q=status%3Anoreplies%20after%3A14%20-tags%3Aknowledge-base%20in%3Aunseen%20order%3Alatest"
-                                title="Help answering questions">Do you know the answer?</a>
-                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                href="http://graphgearstore.com" title="Graph Gear Store">Graph Gear Store</a>
+        <nav class="bg-gray-dark w-full p-0 shadow-xl">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="relative flex items-center justify-between h-12">
+                    <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                        <div class="sm:block sm:ml-6">
+                            <div class="flex space-x-4">
+                                <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    href="https://community.neo4j.com/categories#jumpPoint"
+                                    title="Categories">Discussions</a>
+                                <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    href="https://community.neo4j.com/search?q=status%3Anoreplies%20after%3A14%20-tags%3Aknowledge-base%20in%3Aunseen%20order%3Alatest"
+                                    title="Help answering questions">Do you know the answer?</a>
+                                <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    href="http://graphgearstore.com" title="Graph Gear Store">Graph Gear Store</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <div class="sm:block sm:ml-6">
+                            <div class="flex space-x-4">
+                                <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                                    href="https://neo4j.com">&nbsp;</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </nav>
 
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <div class="sm:block sm:ml-6">
-                        <div class="flex space-x-4">
-                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                href="https://neo4j.com">&nbsp;</a>
+    </section>
+
+    <section id="twin4j"
+        class="overflow-hidden shadow bg-gradient-to-b dark:from-blue-800 dark:to-blue-900 from-blue-400 to-blue-neo4j">
+
+        <h2 id="twin4jHeadline" class="bold text-white text-2xl text-center m-2">This Week in Neo4j</h2>
+
+        <div id="twin4jContainer" class="grid grid-cols-1 gap-4">
+            <!-- loader while waiting from articles from head_tag scripts -->
+            <div class="shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                <div class="animate-pulse flex space-x-4">
+                    <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                    <div class="flex-1 space-y-4 py-1">
+                        <div class="space-y-2">
+                            <div class="h-4 bg-blue-400 rounded"></div>
+                            <div class="h-4 bg-blue-400 rounded w-5/6"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </nav>
 
-</section>
+        <div class="text-right" id="twin4j-button">
+            <a href="https://neo4j.com/tag/twin4j/"
+                class="inline-block p-2 text-blue-darkest hover:text-black hover:bg-blue-400 bg-opacity-10 hover:bg-opacity-60"
+                target="_blank"><i class="fa fa-commenting d-icon d-icon-commenting"></i>See Previous Newsletters
+                <code>--&gt;</code></a>
+        </div>
+    </section>
 
-<section id="twin4j" class="overflow-hidden shadow bg-gradient-to-b dark:from-blue-800 dark:to-blue-900 from-blue-400 to-blue-neo4j">
+    <section id="people" class="overflow-hidden shadow bg-white dark:text-white dark:bg-gray-darkest">
+        <div class="px-4 py-5 sm:p-6">
 
-    <h2 id="twin4jHeadline" class="bold text-white text-2xl text-center m-2">This Week in Neo4j</h2>
+            <div class="grid gap-2 grid-cols-1 md:grid-cols-2">
 
-    <div id="twin4jContainer" class="grid grid-cols-1 gap-4"></div>
+                <div class="" id="featuredDeveloper">
 
-    <div class="text-right" id="twin4j-button">
-        <a href="https://neo4j.com/tag/twin4j/" class="inline-block p-2 text-blue-darkest hover:text-black hover:bg-blue-400 bg-opacity-10 hover:bg-opacity-60" target="_blank"><i
-                class="fa fa-commenting d-icon d-icon-commenting"></i>See Previous Newsletters <code>--&gt;</code></a>
-    </div>
-</section>
+                    <h2 class="text-xl text-center mb-2">Featured Community Member</h2>
 
-<section id="people" class="overflow-hidden shadow bg-white dark:text-white dark:bg-gray-darkest">
-    <div class="px-4 py-5 sm:p-6">
+                    <!-- loader while waiting from featured member from head_tag scripts -->
+                    <div class="shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                        <div class="animate-pulse flex space-x-4">
+                            <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                            <div class="flex-1 space-y-4 py-1">
+                                <div class="space-y-2">
+                                    <div class="h-4 bg-blue-400 rounded"></div>
+                                    <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="grid gap-2 grid-cols-1 md:grid-cols-2">
+                    <!-- img to be appended -->
+                </div>
 
-            <div class="" id="featuredDeveloper">
 
-                <h2 class="text-xl text-center mb-2">Featured Community Member</h2>
+                <div class="" id="newCertifiedDevelopers">
+                    <h2 class="text-xl text-center mb-2">Newly Certified Developers</h2>
+                    <div class="">
+                        <div id='devList' class="grid gap-2 grid-cols-3 grid-rows-2">
+                            <!-- loader will be replaced with fetched users from head_tag script -->
+                            <div class="col-span-3 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                                <div class="animate-pulse flex space-x-4">
+                                    <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                                    <div class="flex-1 space-y-4 py-1">
+                                        <div class="space-y-2">
+                                            <div class="h-4 bg-blue-400 rounded"></div>
+                                            <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- img to be appended -->
             </div>
 
+        </div>
+    </section>
 
-            <div class="" id="newCertifiedDevelopers">
+    <section id="projects" class="overflow-hidden shadow bg-white dark:text-white dark:bg-gray-darkest">
+        <div class="px-4 py-5 sm:p-6">
 
-                <h2 class="text-xl text-center mb-2">Newly Certified Developers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2">
 
-                <div class="">
-                    <div id='devList' class="grid gap-2 grid-cols-3 grid-rows-2">
-                        <!-- developer icons to be prepended -->
-                        <div class="text-center p-2 self-center dark:hover:bg-gray-900 hover:shadow" id="certified-button">
-                            <a href="https://neo4j.com/graphacademy/neo4j-certification/" 
-                               class=""
-                               target="_blank">
-                            <svg height="50px" class="mx-auto p-1 border border-solid border-black rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.a{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>Become a certified Neo4j developer</title><path class="a" d="M15.5,23.25V19.511l1.007.168A3,3,0,0,0,20,16.719V14.261l.935-.234a1.5,1.5,0,0,0,.884-2.287L20,9.011v-.75C20,3.835,15.521.3,10.182.8A8.994,8.994,0,0,0,6.5,17.547v5.7"></path><path class="a" d="M8.572,8.25a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415v.256"></path><path class="a" d="M11.572,15.75a.375.375,0,1,0,.375.375.375.375,0,0,0-.375-.375h0"></path></svg>
-                            <span>Certify Yourself</span>
-                            </a>
+                <div id="communityContent">
+                    <h2 class="text-xl text-center mb-2">Popular Blogs</h2>
+
+                    <div id="communityBlogs" class="feature-list grid grid-cols-1 gap-4 mb-4">
+                        <!-- loader will be replaced with fetched blogs from head_tag script -->
+                        <div class="shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                            <div class="animate-pulse flex space-x-4">
+                                <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                                <div class="flex-1 space-y-4 py-1">
+                                    <div class="space-y-2">
+                                        <div class="h-4 bg-blue-400 rounded"></div>
+                                        <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="buttons" id="blogs-button">
+                        <a href="/c/community-content-blogs" class="btn btn-icon-text ember-view"><i
+                                class="fa fa-commenting d-icon d-icon-commenting"></i>Discover More Blogs
+                            <code>--&gt;</code></a>
+                    </div>
+                </div>
+
+                <div id="communityProjects">
+
+                    <h2 class="text-xl text-center mb-2">Popular Projects</h2>
+
+                    <div id="communityOpenSource" class="feature-list grid grid-cols-1 gap-4 mb-4">
+                        <!-- loader will be replaced with fetched projects from head_tag script -->
+                        <div class="shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                            <div class="animate-pulse flex space-x-4">
+                                <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+                                <div class="flex-1 space-y-4 py-1">
+                                    <div class="space-y-2">
+                                        <div class="h-4 bg-blue-400 rounded"></div>
+                                        <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons" id="projects-button">
+                        <a href="/c/projects-collaboration" class="btn btn-icon-text ember-view"><i
+                                class="fa fa-commenting d-icon d-icon-commenting"></i>Find More Projects
+                            <code>--&gt;</code></a>
                     </div>
                 </div>
             </div>
 
         </div>
 
-    </div>
-</section>
-
-<section id="projects" class="overflow-hidden shadow bg-white dark:text-white dark:bg-gray-darkest">
-    <div class="px-4 py-5 sm:p-6">
-
-        <div class="grid grid-cols-1 md:grid-cols-2">
-
-            <div  id="communityContent">
-                <h2 class="text-xl text-center mb-2">Popular Blogs</h2>
-
-                <div id="communityBlogs" class="feature-list grid grid-cols-1 gap-4 mb-4">
-                </div>
-
-                <div class="buttons" id="blogs-button">
-                    <a href="/c/community-content-blogs" class="btn btn-icon-text ember-view"><i
-                            class="fa fa-commenting d-icon d-icon-commenting"></i>Discover More Blogs <code>--&gt;</code></a>
-                </div>
-            </div>
-
-            <div id="communityProjects">
-
-                <h2 class="text-xl text-center mb-2">Popular Projects</h2>
-
-                <div id="communityOpenSource" class="feature-list grid grid-cols-1 gap-4 mb-4"></div>
-
-                <div class="buttons" id="projects-button">
-                    <a href="/c/projects-collaboration" class="btn btn-icon-text ember-view"><i
-                            class="fa fa-commenting d-icon d-icon-commenting"></i>Find More Projects <code>--&gt;</code></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 </div>
 
