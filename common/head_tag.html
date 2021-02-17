@@ -198,7 +198,6 @@ function graphQL(query, success, fail) {
  * NOTE: discourse is a single-page app! So page ready happens only once.
  */
 function pageReady() {
-    console.log("page ready:", document.location.pathname);
 
     api.registerHighlightJSLanguage("cypher", cypherLang);
 
@@ -218,9 +217,9 @@ function pageReady() {
 
     api.onPageChange((url, title) => {
         if (document.location.pathname === '/') {
-            $('#discourse-theme-neo4j-header').show();
+            $('#discourse-theme-neo4j-header-features').show();
         } else {
-            $('#discourse-theme-neo4j-header').hide();
+            $('#discourse-theme-neo4j-header-features').hide();
         }
     });  
 }
