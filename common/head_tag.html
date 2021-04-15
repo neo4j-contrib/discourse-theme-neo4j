@@ -3,8 +3,6 @@
 
 
 <script type="text/discourse-plugin" version="0.8">
-    //var hljs = require('highlight.js');
-    //var cypherLang = require('highlightjs-cypher').default;
 
     //Weekly and Community banners
 var endpoint = "https://communityapi.neo4jlabs.com/";
@@ -200,7 +198,6 @@ function graphQL(query, success, fail) {
  */
 function pageReady() {
 
-    //api.registerHighlightJSLanguage("cypher", cypherLang);
 
     graphQL(combinedQuery, data => {
         if (!data || !data.data) {
