@@ -103,15 +103,32 @@ module.exports = {
         transparent: "transparent",
         current: "currentColor",
         blue: {
-          light: "#85d7ff",
-          DEFAULT: "#1fb6ff",
-          dark: "#009eeb",
-          darkest: "#002330",
-          neo4j: "#008CC2"
+          lightest: "#ccE8fd",
+          light: "#80C5fc",
+          neo4j: "#018BFF",
+          dark: "#00457f",
+          darkest: "#00223f",
         },
-        green: {
-          neo4j: "#63b345",
-          dark: "#386627",
+        red: {
+          neo4j: "#ED1253",
+          dark: "#760929",
+          darkest: "#3b0414",
+        },
+        yellow: {
+          neo4j: "#FFDE63",
+          dark: "#7f6F31",
+          darkest: "#3f3718",
+        },
+        teal: {
+          neo4j: "#55F9E2",
+          dark: "#1a4E46",
+          darkest: "#153E38",
+        },
+        indigo: {
+          light: "#103Dbe",
+          neo4j: "#0B287D",
+          dark: "#0B287D",
+          darkest: "#05143e",
         },
         pink: {
           light: "#ff7ce5",

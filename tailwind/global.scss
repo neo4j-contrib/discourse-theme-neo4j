@@ -38,6 +38,9 @@
 .topic-body .cooked {
   @apply prose dark:prose-dark dark:bg-gray-dark;
 
+  code, a code {
+    @apply dark:text-yellow-300
+  }
   img.emoji {
     display: inline-block;
     margin: unset;
@@ -66,7 +69,7 @@
 }
 
 .twin4j-article-headline {
-  @apply bg-green-neo4j dark:bg-green-dark text-white dark:text-gray-200 text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-green-dark dark:ring-green-900;
+  @apply bg-white dark:bg-blue-darkest text-black dark:text-gray-200 text-center italic p-6 m-4 h-48 w-48 inline-flex items-center rounded-full shadow hover:shadow-xl hover:ring-4 ring-blue-dark dark:ring-blue-dark;
   a:hover {
     @apply text-current;
   }
