@@ -36,7 +36,7 @@
 
 
 .topic-body .cooked {
-  @apply prose dark:prose-dark dark:bg-gray-dark;
+  @apply prose dark:prose-dark dark:bg-transparent;
 
   code, a code {
     @apply dark:text-yellow-300
