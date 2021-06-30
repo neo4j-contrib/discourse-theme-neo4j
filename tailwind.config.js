@@ -10,7 +10,7 @@ const em = (px, base) => `${round(px / base)}em`
 
 module.exports = {
   purge: [
-    // './common/*.html',
+    './common/*.html',
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -149,6 +149,7 @@ module.exports = {
     extend: {
       ringWidth: ['hover'],
       backgroundOpacity: ['hover'],
+      textColor: ['visited'],
     },
     typography: ["dark"],
   },
