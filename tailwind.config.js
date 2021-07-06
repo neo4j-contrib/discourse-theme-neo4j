@@ -16,8 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
-        serif: ['"Cormorant Garamond"', ...defaultTheme.fontFamily.serif],
+        sans: ['"Nunito Sans"', ...defaultTheme.fontFamily.sans],
         mono: ['"Fira Code"', ...defaultTheme.fontFamily.mono],
       },
       typography: {
