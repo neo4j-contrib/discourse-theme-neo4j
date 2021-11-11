@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "Andreas Kollegger",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/akollegger/discourse-theme-neo4j/issues"
   },
