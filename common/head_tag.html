@@ -225,7 +225,7 @@ function pageReady() {
 
     api.onPageChange((url, title) => {
         var segment=window.analytics=window.analytics||[];
-        segment.page(title);
+        segment.page('CC_PAGE_VIEWED');
 
         if (document.location.pathname === '/') {
             $('#discourse-theme-neo4j-header-features').show();
