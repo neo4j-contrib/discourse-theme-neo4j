@@ -196,10 +196,18 @@ function graphQL(query, success, fail) {
 }
 
 /**
- * NOTE: discourse is a single-page app! So page ready happens only once.
+ * NOTE: This only happens once after the page is ready.
  */
 function pageReady() {
-
+    var segment=window.analytics=window.analytics||[];
+    const user = api.getCurrentUser();  
+    if (user) {
+        segment.identify(user.external_id, {
+            name: user.name,
+            email: '',
+            username: user.username
+        });
+    }
 
     graphQL(combinedQuery, data => {
         if (!data || !data.data) {
@@ -216,12 +224,16 @@ function pageReady() {
 
 
     api.onPageChange((url, title) => {
+        var segment=window.analytics=window.analytics||[];
+        segment.page(title);
+
         if (document.location.pathname === '/') {
             $('#discourse-theme-neo4j-header-features').show();
         } else {
             $('#discourse-theme-neo4j-header-features').hide();
-        }
+        }      
     });  
+    
 }
 
 $(document).ready(pageReady);  
