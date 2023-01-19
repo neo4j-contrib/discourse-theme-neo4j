@@ -9,8 +9,11 @@ const rem = (px) => `${round(px / 16)}rem`
 const em = (px, base) => `${round(px / base)}em`
 
 module.exports = {
-  purge: [
+  content: [
     './common/*.html',
+  ],
+  blocklist: [
+    'not-prose',
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -27,7 +30,7 @@ module.exports = {
               fontWeight: "inherit",
             },
             code: {
-              backgroundColor: defaultTheme.colors.gray[100],
+              backgroundColor: 'gray',
             },
             "code::before": {
               content: '""',
@@ -153,4 +156,10 @@ module.exports = {
     typography: ["dark"],
   },
   plugins: [require("@tailwindcss/typography")],
+  corePlugins: {
+    backgroundOpacity: false,
+    borderOpacity: false,
+    opacity: false,
+    textOpacity: false
+  }
 };

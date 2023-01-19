@@ -1,7 +1,7 @@
 {
-  "name": "Neo4j Discourse 2021",
-  "about_url": null,
-  "license_url": null,
+  "name": "Neo4j Discourse Theme",
+  "about_url": "https://github.com/neo4j-contrib/discourse-theme-neo4j",
+  "license_url": "https://github.com/neo4j-contrib/discourse-theme-neo4j/blob/main/LICENSE.txt",
   "assets": {
   },
   "color_schemes": {

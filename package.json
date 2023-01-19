@@ -19,15 +19,15 @@
   },
   "homepage": "https://github.com/akollegger/discourse-theme-neo4j#readme",
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.2",
-    "autoprefixer": "^9.8.6",
-    "highlightjs-cypher": "^1.1.1",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "autoprefixer": "^10.4.13",
+    "highlightjs-cypher": "^1.1.5",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.3.1",
-    "postcss-cli": "^7.1.2",
-    "posthtml-include": "^1.6.0"
+    "@tailwindcss/typography": "^0.5.9",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "posthtml-include": "^1.7.4"
   }
 }

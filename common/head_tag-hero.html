@@ -209,17 +209,18 @@ function pageReady() {
         });
     }
 
-    //graphQL(combinedQuery, data => {
-    //      if (!data || !data.data) {
-    //        console.warn("Bad data returned by graphql endpoint",data);
-    //    }
-    //    Object.keys(handlers).map(key => {
-    //        var pkg = handlers[key];
-    //        var handler = pkg.handler;
-    //        handler(data);            
-    //    })
-    //
-    //}, genericError);
+    graphQL(combinedQuery, data => {
+        if (!data || !data.data) {
+            console.warn("Bad data returned by graphql endpoint",data);
+        }
+        Object.keys(handlers).map(key => {
+            var pkg = handlers[key];
+            var handler = pkg.handler;
+
+            handler(data);            
+        })
+
+    }, genericError);
 
 
     api.onPageChange((url, title) => {
