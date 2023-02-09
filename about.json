@@ -3,6 +3,8 @@
   "about_url": "https://github.com/neo4j-contrib/discourse-theme-neo4j",
   "license_url": "https://github.com/neo4j-contrib/discourse-theme-neo4j/blob/main/LICENSE.txt",
   "assets": {
+    "tailwind": "assets/tailwind.css"
   },
   "color_schemes": {
-  }}
+  }
+}
