@@ -160,6 +160,7 @@ module.exports = {
     backgroundOpacity: false,
     borderOpacity: false,
     opacity: false,
-    textOpacity: false
+    textOpacity: false,
+    preflight: false
   }
 };
