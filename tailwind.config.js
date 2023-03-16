@@ -8,6 +8,51 @@ const round = (num) =>
 const rem = (px) => `${round(px / 16)}rem`
 const em = (px, base) => `${round(px / base)}em`
 
+const neo4jColors = {
+  transparent: "transparent",
+  current: "currentColor",
+  blue: {
+    lightest: "#ccE8fd",
+    light: "#80C5fc",
+    neo4j: "#018BFF",
+    dark: "#00457f",
+    darkest: "#00223f",
+  },
+  red: {
+    neo4j: "#ED1253",
+    dark: "#760929",
+    darkest: "#3b0414",
+  },
+  yellow: {
+    neo4j: "#FFDE63",
+    dark: "#7f6F31",
+    darkest: "#3f3718",
+  },
+  teal: {
+    neo4j: "#55F9E2",
+    dark: "#1a4E46",
+    darkest: "#153E38",
+  },
+  indigo: {
+    light: "#103Dbe",
+    neo4j: "#0B287D",
+    dark: "#0B287D",
+    darkest: "#05143e",
+  },
+  pink: {
+    light: "#ff7ce5",
+    DEFAULT: "#ff49db",
+    dark: "#ff16d1",
+  },
+  gray: {
+    darkest: "#1f2d3d",
+    dark: "#30333a",
+    DEFAULT: "#45484e",
+    light: "#e0e6ed",
+    lightest: "#f9fafc",
+  }
+};
+
 module.exports = {
   content: [
     './common/*.html',
@@ -30,7 +75,9 @@ module.exports = {
               fontWeight: "inherit",
             },
             code: {
-              backgroundColor: 'gray',
+              color: neo4jColors.gray.darkest,
+              fontWeight: "inherit",
+              backgroundColor: neo4jColors.gray.light,
             },
             "code::before": {
               content: '""',
@@ -52,6 +99,9 @@ module.exports = {
               // borderLeftWidth: '0.25rem',
               // borderLeftColor: theme('colors.gray.200', defaultTheme.colors.gray[200]),
               quotes: "none",
+            },
+            "::selection": {
+              backgroundColor: neo4jColors.blue.lightest,
             }
           },
         },
@@ -88,63 +138,19 @@ module.exports = {
               color: "#FFF",
             },
             blockquote: {
-              color: "#deDEde"
-
+              color: neo4jColors.gray.dark
             },
             code: {
-              color: "#deDEde",
+              color: neo4jColors.yellow.neo4j,
               backgroundColor: "inherit"
             },
             "::selection": {
-              backgroundColor: "#6f7bb635",
+              backgroundColor: neo4jColors.blue.lightest,
             },
           },
         },
       },
-      colors: {
-        transparent: "transparent",
-        current: "currentColor",
-        blue: {
-          lightest: "#ccE8fd",
-          light: "#80C5fc",
-          neo4j: "#018BFF",
-          dark: "#00457f",
-          darkest: "#00223f",
-        },
-        red: {
-          neo4j: "#ED1253",
-          dark: "#760929",
-          darkest: "#3b0414",
-        },
-        yellow: {
-          neo4j: "#FFDE63",
-          dark: "#7f6F31",
-          darkest: "#3f3718",
-        },
-        teal: {
-          neo4j: "#55F9E2",
-          dark: "#1a4E46",
-          darkest: "#153E38",
-        },
-        indigo: {
-          light: "#103Dbe",
-          neo4j: "#0B287D",
-          dark: "#0B287D",
-          darkest: "#05143e",
-        },
-        pink: {
-          light: "#ff7ce5",
-          DEFAULT: "#ff49db",
-          dark: "#ff16d1",
-        },
-        gray: {
-          darkest: "#1f2d3d",
-          dark: "#30333a",
-          DEFAULT: "#45484e",
-          light: "#e0e6ed",
-          lightest: "#f9fafc",
-        },
-      },
+      colors: neo4jColors
     },
   },
   variants: {

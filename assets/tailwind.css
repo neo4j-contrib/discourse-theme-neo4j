@@ -604,10 +604,10 @@
   margin-top: 0.8571429em;
 }
 .topic-body .cooked :where(code):not(:where([class~="not-prose"] *)){
-  color: var(--tw-prose-code);
-  font-weight: 600;
+  color: #1f2d3d;
+  font-weight: inherit;
   font-size: 0.875em;
-  background-color: gray;
+  background-color: #e0e6ed;
 }
 .topic-body .cooked :where(code):not(:where([class~="not-prose"] *))::before{
   content: "";
@@ -825,6 +825,12 @@
 .topic-body .cooked :where(h1,h2,h3,h4):not(:where([class~="not-prose"] *)){
   font-weight: inherit;
 }
+.topic-body .cooked :where():not(:where([class~="not-prose"] *))::-moz-selection{
+  background-color: #ccE8fd;
+}
+.topic-body .cooked :where():not(:where([class~="not-prose"] *))::selection{
+  background-color: #ccE8fd;
+}
 @media (prefers-color-scheme: dark){
   .topic-body .cooked{
     background-color: transparent;
@@ -858,17 +864,17 @@
     color: #FFF;
   }
   .topic-body .cooked :where(blockquote):not(:where([class~="not-prose"] *)){
-    color: #deDEde;
+    color: #30333a;
   }
   .topic-body .cooked :where(code):not(:where([class~="not-prose"] *)){
-    color: #deDEde;
+    color: #FFDE63;
     background-color: inherit;
   }
   .topic-body .cooked :where():not(:where([class~="not-prose"] *))::-moz-selection{
-    background-color: #6f7bb635;
+    background-color: #ccE8fd;
   }
   .topic-body .cooked :where():not(:where([class~="not-prose"] *))::selection{
-    background-color: #6f7bb635;
+    background-color: #ccE8fd;
   }
   .topic-body .cooked code, .topic-body .cooked a code{
     color: #fde047;
