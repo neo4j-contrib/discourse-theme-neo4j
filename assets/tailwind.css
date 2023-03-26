@@ -864,7 +864,7 @@
     color: #FFF;
   }
   .topic-body .cooked :where(blockquote):not(:where([class~="not-prose"] *)){
-    color: #30333a;
+    color: #FFF;
   }
   .topic-body .cooked :where(code):not(:where([class~="not-prose"] *)){
     color: #FFDE63;
