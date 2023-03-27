@@ -138,7 +138,7 @@ module.exports = {
               color: "#FFF",
             },
             blockquote: {
-              color: neo4jColors.gray.dark
+              color: "#FFF"
             },
             code: {
               color: neo4jColors.yellow.neo4j,
