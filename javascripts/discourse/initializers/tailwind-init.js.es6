@@ -25,11 +25,10 @@ function initialize(api) {
 				return helper.h('span', {
 					style: "float:left; height:2.2857em; line-height:2.2857em; padding-right:30px; padding-top:.2143em;"
 				}, [
-				  'Join ',
-				  helper.h('a', {
-					href:'https://dev.neo4j.com/42KC4ow',
-				  }, 'NODES 2023'),
-				  ' on Oct. 26.'
+					'NODES 2023 Is on October 26th, and You’re Invited! ',
+					helper.h('a', {
+						href:'https://dev.neo4j.com/3PWWB5a',
+					}, 'Save your seat')
 				]);
 			});
 		}
