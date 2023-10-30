@@ -19,20 +19,6 @@ function initialize(api) {
 		// Append link element to HTML head
 		assetStylesheets.append(link);
 
-		if (window.innerWidth > 800) {
-			api.decorateWidget('header-icons:before', helper => {
-		
-				return helper.h('span', {
-					style: "float:left; height:2.2857em; line-height:2.2857em; padding-right:30px; padding-top:.2143em;"
-				}, [
-					'NODES 2023 Is on October 26th, and You’re Invited! ',
-					helper.h('a', {
-						href:'https://dev.neo4j.com/3PWWB5a',
-					}, 'Save your seat')
-				]);
-			});
-		}
-
 }
 
 export default {
