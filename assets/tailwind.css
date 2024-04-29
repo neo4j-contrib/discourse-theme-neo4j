@@ -93,8 +93,23 @@
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.absolute{
+  position: absolute;
+}
 .relative{
   position: relative;
+}
+.top-0{
+  top: 0px;
+}
+.right-0{
+  right: 0px;
+}
+.bottom-0{
+  bottom: 0px;
+}
+.left-0{
+  left: 0px;
 }
 .col-span-3{
   grid-column: span 3 / span 3;
@@ -138,6 +153,15 @@
 }
 .h-4{
   height: 1rem;
+}
+.h-48{
+  height: 12rem;
+}
+.h-16{
+  height: 4rem;
+}
+.h-24{
+  height: 6rem;
 }
 .w-full{
   width: 100%;
@@ -370,8 +394,8 @@
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-8xl{
-  font-size: 6rem;
+.text-6xl{
+  font-size: 3.75rem;
   line-height: 1;
 }
 .font-medium{
